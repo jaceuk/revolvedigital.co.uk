@@ -3,11 +3,14 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+	<div class="inner-wrapper">
+		&copy; {today.getFullYear()} Revolve Digital Solutions. All rights reserved.
+	</div>
 </footer>
-<style>
+
+<style lang="scss">
 	footer {
-		padding: 25px;
-		text-align: center;
+		background: var(--c-paper-opaque);
+		border-top: 1px solid var(--c-border);
 	}
 </style>

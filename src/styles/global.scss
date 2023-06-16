@@ -1,0 +1,89 @@
+/* makes sizing simpler */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+	color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+	min-height: 100vh;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+html {
+	background-color: var(--c-paper);
+}
+
+body {
+	transition: var(--transition);
+	background: url(/background.jpg);
+	background-repeat: repeat-y;
+	background-position: 50% -140px;
+	background-size: 900px;
+
+	@media (min-width: 768px) {
+		background-size: 2426px;
+		background-position: 50% -500px;
+	}
+}
+
+.inner-wrapper {
+	max-width: 1376px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 var(--s-2-4);
+}
+
+.with-gradient {
+	background: var(--section-background);
+	padding: var(--s-4-5) 0;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+a {
+	width: fit-content;
+}
+
+.readable-content {
+	max-width: var(--max-readable-width);
+}
+
+.no-scroll {
+	overflow: hidden;
+}

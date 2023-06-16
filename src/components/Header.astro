@@ -1,25 +1,114 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import logo from '../../public/logo.svg';
 ---
 
+<script>
+	const pathName = window.location.pathname;
+	const homeButton = document.querySelector('.navlink[href="/"]');
+	const servicesButton = document.querySelector('.navlink[href="/services"]');
+	const projectsButton = document.querySelector('.navlink[href="/projects"]');
+	const contactButton = document.querySelector('.navlink[href="/contact"]');
+
+	if (pathName === '/') homeButton?.classList.add('active');
+	if (pathName === '/services') servicesButton?.classList.add('active');
+	if (pathName === '/projects') projectsButton?.classList.add('active');
+	if (pathName === '/contact') contactButton?.classList.add('active');
+</script>
+
 <header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-	</nav>
+	<div class="inner-wrapper">
+		<div class="navbar">
+			<div class="logoContainer">
+				<a href="/" class="logo">
+					<img src={logo} alt="Revolve Digital Solutions logo" />
+					<div class="sr-only">Homepage</div>
+				</a>
+			</div>
+
+			<nav>
+				<div class="navLinks">
+					<a class="navlink" href="/">Home</a>
+
+					<a class="navlink" href="/services">Services</a>
+
+					<a class="navlink" href="/projects">Projects</a>
+
+					<a class="navlink" href="/contact">Contact</a>
+				</div>
+			</nav>
+		</div>
+	</div>
 </header>
-<style>
+
+<style lang="scss">
 	header {
-		margin: 0em 0 2em;
+		background: var(--c-paper-opaque);
+		border-bottom: 1px solid var(--c-border);
 	}
-	h2 {
-		margin: 0.5em 0;
+
+	.navbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--s-2-4) 0;
+		z-index: 200;
+		position: relative;
+
+		.logo {
+			display: flex;
+			align-items: center;
+
+			svg {
+				height: 50px;
+				fill: var(--c-text);
+
+				@media (min-width: 768px) {
+					height: 70px;
+				}
+			}
+		}
+
+		.logoContainer {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+		}
+
+		nav {
+			.navLinks {
+				display: flex;
+				align-items: center;
+				gap: 1.6rem;
+
+				@media (min-width: 768px) {
+					gap: 3.2rem;
+				}
+
+				a {
+					font-size: 1.8rem;
+					font-weight: var(--fw-bold);
+					transition: var(--transition);
+					display: grid;
+					padding: 0.4rem 0.8rem;
+
+					@media (min-width: 768px) {
+						padding: 1.6rem;
+					}
+
+					&:hover,
+					&.active {
+						color: var(--c-accent);
+					}
+
+					&:first-child {
+						display: none;
+
+						@media (min-width: 768px) {
+							display: grid;
+						}
+					}
+				}
+			}
+		}
 	}
 </style>
