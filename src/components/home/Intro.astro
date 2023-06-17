@@ -1,0 +1,19 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="container">
+	<h2>{title}</h2>
+	<p><slot /></p>
+</div>
+
+<style lang="scss">
+	.container {
+		display: grid;
+		gap: var(--s-2-4);
+	}
+</style>

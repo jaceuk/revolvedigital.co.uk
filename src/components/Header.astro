@@ -18,12 +18,10 @@ import logo from '../images/logo.svg';
 <header>
 	<div class="inner-wrapper">
 		<div class="navbar">
-			<div class="logoContainer">
-				<a href="/" class="logo">
-					<img src={logo} alt="Revolve Digital Solutions logo" />
-					<div class="sr-only">Homepage</div>
-				</a>
-			</div>
+			<a href="/" class="logo">
+				<img src={logo} alt="Revolve Digital Solutions logo" />
+				<div class="sr-only">Homepage</div>
+			</a>
 
 			<nav>
 				<div class="navLinks">
@@ -47,15 +45,15 @@ import logo from '../images/logo.svg';
 	}
 
 	.navbar {
-		display: flex;
-		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		justify-content: space-between;
 		padding: var(--s-2-4) 0;
 		z-index: 200;
 		position: relative;
 
 		.logo {
-			display: flex;
+			display: grid;
 			align-items: center;
 
 			svg {
@@ -68,26 +66,24 @@ import logo from '../images/logo.svg';
 			}
 		}
 
-		.logoContainer {
-			display: flex;
-			align-items: center;
-			gap: 0.8rem;
-		}
-
 		nav {
+			width: fit-content;
+			justify-self: end;
+
 			.navLinks {
-				display: flex;
-				align-items: center;
-				gap: 1.6rem;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				gap: var(--s-1-2);
+				width: fit-content;
 
 				@media (min-width: 768px) {
-					gap: 3.2rem;
+					gap: var(--s-1-2);
 				}
 
 				a {
 					font-size: var(--fs-nav);
 					font-weight: var(--fw-semi-bold);
-					transition: var(--transition);
+					transition: var(--transition-color);
 					display: grid;
 					padding: 0.4rem 0.8rem;
 

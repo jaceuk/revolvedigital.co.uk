@@ -1,14 +1,16 @@
 ---
-import { HERO_ACTION_TEXT, HOME_SUB_TITLE, HOME_TITLE } from '../../consts';
 import hero from '../../images/hero.jpg';
 import Button from '../Button.astro';
 ---
 
 <section class="inner-wrapper container">
 	<div class="text">
-		<h1>{HOME_TITLE}</h1>
-		<div class="subtitle">{HOME_SUB_TITLE}</div>
-		<Button>{HERO_ACTION_TEXT}</Button>
+		<h1>Cost effective business websites</h1>
+		<div class="subtitle">
+			With over two decades of experience let us help your business reach new heights with a bespoke
+			website
+		</div>
+		<Button>Talk to us today</Button>
 	</div>
 
 	<div class="image"><img src={hero} alt="" /></div>
@@ -16,13 +18,12 @@ import Button from '../Button.astro';
 
 <style lang="scss">
 	.container {
-		display: flex;
-		align-items: stretch;
+		display: grid;
+		grid-template-columns: 1fr;
 		gap: var(--s-4-8);
-		flex-direction: column;
 
 		@media (min-width: 768px) {
-			flex-direction: row;
+			grid-template-columns: 1fr 1fr;
 		}
 	}
 

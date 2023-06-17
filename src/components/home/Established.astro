@@ -1,0 +1,77 @@
+---
+import GlassCard from '@components/GlassCard.astro';
+---
+
+<section class="inner-wrapper">
+	<GlassCard>
+		<div class="container">
+			<div class="circle">
+				<div class="text">
+					<div>Established</div>
+					<div class="h1">2001</div>
+				</div>
+			</div>
+
+			<div class="text">
+				<h2>We build successful websites</h2>
+				<p>
+					We have been creating stunning, usable websites for over 22 years. We are passionate about
+					our work and this shows in everything we do.
+				</p>
+				<p>
+					We look at websites from the point of view of the people who are going to be using them,
+					your customers. Using research and our wealth of experience we will always recommend a
+					solution matching your specific requirements and create a website that will yield tangible
+					results.
+				</p>
+				<p>
+					Every site we create is unique and fully optimised for Google search results and created
+					to work on Desktop PCs, Mobile Phones and Tablets.
+				</p>
+			</div>
+		</div>
+	</GlassCard>
+</section>
+
+<style lang="scss">
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--s-4-8);
+
+		@media (min-width: 768px) {
+			grid-template-columns: auto 1fr;
+		}
+	}
+
+	.circle {
+		border-radius: 200px;
+		background-color: var(--c-paper);
+		width: 224px;
+		height: 224px;
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		box-shadow: var(--card-box-shadow);
+		justify-self: center;
+
+		@media (min-width: 1000px) {
+			width: 324px;
+			height: 324px;
+		}
+
+		.text {
+			display: grid;
+			gap: 0;
+
+			div {
+				justify-self: center;
+			}
+		}
+	}
+
+	.text {
+		display: grid;
+		gap: var(--s-2-4);
+	}
+</style>

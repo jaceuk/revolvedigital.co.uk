@@ -35,7 +35,7 @@
 	/* font size */
 	--fs-h1: clamp(4.8rem, 2.6182rem + 5.8182vw, 7.2rem);
 	--fs-h2: clamp(3.2rem, 2.4727rem + 1.9394vw, 4.8rem);
-	--fs-h3: clamp(2.4rem, 1.8545rem + 1.4545vw, 3.6rem);
+	--fs-h3: clamp(2.4rem, 1.8rem + 1.6667vw, 3.2rem);
 	--fs-h4: clamp(2rem, 1.5455rem + 1.2121vw, 2.4rem);
 	--fs-body: clamp(1.6rem, 1.4182rem + 0.4848vw, 2rem);
 	--fs-nav: clamp(1.6rem, 1.5091rem + 0.2424vw, 1.8rem);
@@ -54,7 +54,8 @@
 	/* misc */
 	--card-box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.15);
 	--max-readable-width: 750px;
-	--transition: color 0.2s ease;
+	--transition-color: color 0.2s ease;
+	--transition-background: background 0.2s ease;
 	--border-radius-med: var(--s-2-4);
 	--border-radius-small: var(--s-1-2);
 	--border-radius-x-small: var(--s-1);

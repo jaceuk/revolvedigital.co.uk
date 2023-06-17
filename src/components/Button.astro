@@ -1,16 +1,33 @@
-<button class="button">
-	<slot />
-</button>
+---
+type Props = {
+	children: any;
+	href?: string;
+};
+
+const { href } = Astro.props;
+---
+
+{
+	href ? (
+		<a href={href} class="button">
+			<slot />
+		</a>
+	) : (
+		<button class="button">
+			<slot />
+		</button>
+	)
+}
 
 <style lang="scss">
-	button {
+	.button {
 		color: var(--c-paper);
 		border-radius: var(--border-radius-x-small);
 		padding: var(--s-3) var(--s-4);
 		border: 1px solid var(--c-nearly-accent);
 		cursor: pointer;
 		box-shadow: 0px 4px var(--s-1-2) var(--c-card-shadow);
-		transition: var(--transition);
+		transition: var(--transition-background);
 		width: fit-content;
 		background: var(--c-accent);
 

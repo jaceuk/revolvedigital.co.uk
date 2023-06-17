@@ -1,0 +1,71 @@
+---
+import GlassCard from '../GlassCard.astro';
+import Feature from './Feature.astro';
+import Intro from './Intro.astro';
+import google from '../images/google.svg';
+import speed from '../images/speed.svg';
+import wordpress from '../images/wordpress.svg';
+import accessible from '../images/accessible.svg';
+import Button from '@components/Button.astro';
+---
+
+<section class="inner-wrapper">
+	<GlassCard>
+		<div class="container">
+			<Intro title="Website development">
+				Elevate your online presence with our professional website development services, providing
+				expert solutions to create, optimize, and maintain high-quality websites that captivate your
+				audience and drive business growth.
+			</Intro>
+
+			<div class="features">
+				<Feature
+					icon={google}
+					title="Optimised for Google"
+					text="Boost your online visibility and drive organic traffic with our SEO services."
+				/>
+				<Feature
+					icon={speed}
+					title="Tweaked for speed"
+					text="Maximize your website's speed, reliability, and overall performance."
+				/>
+				<Feature
+					icon={wordpress}
+					title="WordPress CMS"
+					text="Take control of your website or online shop with a WordPress website."
+				/>
+				<Feature
+					icon={accessible}
+					title="Accessibility built in"
+					text="Ensure inclusivity and accessibility for all users with our comprehensive."
+				/>
+			</div>
+
+			<span class="center">
+				<Button href="#">Find out more about or Web development services</Button>
+			</span>
+		</div>
+	</GlassCard>
+</section>
+
+<style lang="scss">
+	.container {
+		display: grid;
+		gap: var(--s-4-8);
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		gap: var(--s-4-8);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.center {
+		margin: auto;
+	}
+</style>

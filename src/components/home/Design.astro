@@ -1,0 +1,67 @@
+---
+import GlassCard from '../GlassCard.astro';
+import Feature from './Feature.astro';
+import Intro from './Intro.astro';
+import users from '../images/users.svg';
+import brand from '../images/users.svg';
+import eye from '../images/eye.svg';
+import accessible from '../images/accessible.svg';
+import Button from '@components/Button.astro';
+---
+
+<section class="inner-wrapper">
+	<GlassCard>
+		<div class="container">
+			<Intro title="Website design">
+				Ready to make a stunning first impression online? Our website design services provide custom
+				solutions to create visually captivating and user-friendly websites that reflect your brand
+				identity and captivate your visitors.
+			</Intro>
+
+			<div class="features">
+				<Feature
+					icon={users}
+					title="User friendly"
+					text="We design websites with best practise user experience."
+				/>
+				<Feature
+					icon={brand}
+					title="Brand aware"
+					text="Your website will fit right in with your existing branding."
+				/>
+				<Feature icon={eye} title="Eye-catching" text="Our sites capture the users attention." />
+				<Feature
+					icon={accessible}
+					title="Accessible"
+					text="Our designs conform to best practise accessibility standards."
+				/>
+			</div>
+
+			<span class="center">
+				<Button href="#">Find out more about or Web design service</Button>
+			</span>
+		</div>
+	</GlassCard>
+</section>
+
+<style lang="scss">
+	.container {
+		display: grid;
+		gap: var(--s-4-8);
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		gap: var(--s-4-8);
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.center {
+		margin: auto;
+	}
+</style>
