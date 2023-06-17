@@ -1,14 +1,14 @@
 ---
-import { heroActionText, homeSubTitle, homeTitle } from '../../consts';
+import { HERO_ACTION_TEXT, HOME_SUB_TITLE, HOME_TITLE } from '../../consts';
 import GlassCard from '../GlassCard.astro';
 import hero from '../../images/hero.jpg';
 ---
 
 <div class="container">
 	<div class="text">
-		<h1>{homeTitle}</h1>
-		<div class="subtitle">{homeSubTitle}</div>
-		<button>{heroActionText}</button>
+		<h1>{HOME_TITLE}</h1>
+		<div class="subtitle">{HOME_SUB_TITLE}</div>
+		<button>{HERO_ACTION_TEXT}</button>
 	</div>
 	<div class="image">
 		<GlassCard>
