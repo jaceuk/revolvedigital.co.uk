@@ -1,54 +1,24 @@
 ---
 import { HERO_ACTION_TEXT, HOME_SUB_TITLE, HOME_TITLE } from '../../consts';
-import GlassCard from '../GlassCard.astro';
-import hero from '../../images/hero.jpg';
 ---
 
 <div class="container">
 	<div class="text">
-		<h1>{HOME_TITLE}</h1>
-		<div class="subtitle">{HOME_SUB_TITLE}</div>
-		<button>{HERO_ACTION_TEXT}</button>
-	</div>
-	<div class="image">
-		<GlassCard>
-			<img src={hero} alt="" />
-		</GlassCard>
+		<div class="readable-content">
+			<h1>{HOME_TITLE}</h1>
+			<div class="subtitle">{HOME_SUB_TITLE}</div>
+			<button>{HERO_ACTION_TEXT}</button>
+		</div>
 	</div>
 </div>
 
 <style lang="scss">
 	.container {
-		display: flex;
-		align-items: center;
-		gap: var(--s-4-8);
 		margin: var(--s-4-8) 0;
-		flex-direction: column;
-
-		@media (min-width: 768px) {
-			flex-direction: row;
-		}
+		position: relative;
 	}
 
 	.text {
-		order: 2;
-
-		@media (min-width: 768px) {
-			order: 1;
-		}
-	}
-
-	.image {
-		order: 1;
-
-		@media (min-width: 768px) {
-			order: 2;
-			min-width: 510px;
-		}
-	}
-
-	img {
-		border-radius: var(--border-radius-small);
-		box-shadow: var(--card-box-shadow);
+		max-width: var(--max-readable-width);
 	}
 </style>
