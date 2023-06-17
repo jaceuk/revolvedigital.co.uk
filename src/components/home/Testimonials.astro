@@ -1,0 +1,32 @@
+---
+import GlassCard from '../GlassCard.astro';
+import Testimonial from './Testimonial.astro';
+---
+
+<section class="inner-wrapper">
+	<GlassCard>
+		<div class="testimonials">
+			<Testimonial author="The Village Florist">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus nisi, interdum ac ipsum
+				ut, vehicula convallis neque. Suspendisse lacinia volutpat egestas.
+			</Testimonial>
+			<Testimonial author="The Village Florist">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus nisi, interdum ac ipsum
+				ut, vehicula convallis neque. Suspendisse lacinia volutpat egestas.
+			</Testimonial>
+		</div>
+	</GlassCard>
+</section>
+
+<style lang="scss">
+	.testimonials {
+		display: flex;
+		align-items: stretch;
+		flex-direction: column;
+		gap: var(--s-4-8);
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
+	}
+</style>

@@ -1,0 +1,21 @@
+---
+const { padding } = Astro.props;
+---
+
+<div class={`container ${padding}`}>
+	<slot />
+</div>
+
+<style lang="scss">
+	.container {
+		background-color: var(--c-paper);
+		padding: var(--s-2-8);
+		border-radius: var(--border-radius-small);
+		box-shadow: var(--card-box-shadow);
+		width: 100%;
+
+		&.small {
+			padding: var(--s-2-4);
+		}
+	}
+</style>

@@ -18,7 +18,7 @@ html {
 body {
 	font-size: var(--fs-body);
 	font-weight: var(--fw-regular);
-	font-family: 'Karla', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 label {
@@ -69,7 +69,6 @@ p {
 
 a {
 	text-decoration: none;
-	font-weight: var(--fw-bold);
 
 	&:visited {
 		color: inherit;

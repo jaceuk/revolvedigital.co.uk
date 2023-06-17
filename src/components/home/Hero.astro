@@ -1,24 +1,59 @@
 ---
 import { HERO_ACTION_TEXT, HOME_SUB_TITLE, HOME_TITLE } from '../../consts';
+import hero from '../../images/hero.jpg';
+import Button from '../Button.astro';
 ---
 
-<div class="container">
+<section class="inner-wrapper container">
 	<div class="text">
-		<div class="readable-content">
-			<h1>{HOME_TITLE}</h1>
-			<div class="subtitle">{HOME_SUB_TITLE}</div>
-			<button>{HERO_ACTION_TEXT}</button>
-		</div>
+		<h1>{HOME_TITLE}</h1>
+		<div class="subtitle">{HOME_SUB_TITLE}</div>
+		<Button>{HERO_ACTION_TEXT}</Button>
 	</div>
-</div>
+
+	<div class="image"><img src={hero} alt="" /></div>
+</section>
 
 <style lang="scss">
 	.container {
-		margin: var(--s-4-8) 0;
-		position: relative;
+		display: flex;
+		align-items: stretch;
+		gap: var(--s-4-8);
+		flex-direction: column;
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
 	}
 
 	.text {
-		max-width: var(--max-readable-width);
+		width: 100%;
+		display: grid;
+		gap: var(--s-2-4);
+		order: 2;
+		justify-items: start;
+
+		@media (min-width: 768px) {
+			order: 1;
+			margin: var(--s-4-8) 0;
+		}
+	}
+
+	.image {
+		border-radius: var(--border-radius-small);
+		box-shadow: var(--card-box-shadow);
+		background-color: var(--c-paper);
+		width: 100%;
+		overflow: hidden;
+		order: 1;
+
+		@media (min-width: 768px) {
+			order: 2;
+		}
+
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 </style>

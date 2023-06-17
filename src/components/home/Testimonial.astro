@@ -1,0 +1,25 @@
+---
+import Card from '../Card.astro';
+
+const { author } = Astro.props;
+---
+
+<Card padding="small">
+	<div class="container">
+		<p><slot /></p>
+		<p class="author">{author}</p>
+	</div>
+</Card>
+
+<style lang="scss">
+	.container {
+		display: grid;
+		gap: var(--s-1-2);
+	}
+
+	.author {
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-small);
+		color: var(--c-accent);
+	}
+</style>
