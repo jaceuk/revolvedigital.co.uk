@@ -5,8 +5,8 @@
 	--s-2: 1.6rem;
 	--s-3: 2.4rem;
 	--s-4: 3.2rem;
-	--s-5: 6.4rem;
-	--s-6: 12.8rem;
+	--s-8: 6.4rem;
+	--s-16: 12.8rem;
 
 	/* responsive spacing */
 	/* based on viewport fom min 375px to max 1200px */
@@ -14,19 +14,22 @@
 	--s-1-2: clamp(var(--s-1), 0.4364rem + 0.9697vw, var(--s-2));
 	--s-1-4: clamp(var(--s-1), -0.2909rem + 2.9091vw, var(--s-4));
 	--s-2-4: clamp(var(--s-2), 0.8727rem + 1.9394vw, var(--s-4));
-	--s-2-5: clamp(var(--s-2), -0.5818rem + 5.8182vw, var(--s-5));
-	--s-4-5: clamp(var(--s-4), 1.7455rem + 3.8788vw, var(--s-5));
+	--s-2-8: clamp(var(--s-2), -0.5818rem + 5.8182vw, var(--s-8));
+	--s-4-8: clamp(var(--s-4), 1.7455rem + 3.8788vw, var(--s-8));
 
 	/* colour tokens */
-	--c-text: #252525;
+	--c-text: var(--c-nearly-black);
 	--c-paper: var(--c-white);
 	--c-paper-opaque: rgba(255, 255, 255, 0.8);
-	--c-accent: #d13f00;
-	--c-border: #f2f2f2;
+	--c-accent: var(--c-red);
+	--c-border: var(--c-pale-grey);
 
 	/* colours */
 	--c-black: #000;
+	--c-nearly-black: #252525;
+	--c-pale-grey: #f2f2f2;
 	--c-white: #ffffff;
+	--c-red: #cc0000;
 
 	/* font size */
 	--fs-h1: clamp(4.8rem, 2.6182rem + 5.8182vw, 7.2rem);
@@ -48,6 +51,9 @@
 	--fw-black: 900;
 
 	/* misc */
+	--card-box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.15);
 	--max-readable-width: 750px;
 	--transition: color 0.2s ease;
+	--border-radius-med: var(--s-2-4);
+	--border-radius-small: var(--s-1-2);
 }

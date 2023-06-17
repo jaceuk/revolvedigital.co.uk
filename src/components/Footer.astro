@@ -1,10 +1,13 @@
 ---
+import { copyrightText } from '../consts';
+
 const today = new Date();
 ---
 
 <footer>
 	<div class="inner-wrapper">
-		&copy; {today.getFullYear()} Revolve Digital Solutions. All rights reserved.
+		&copy; {today.getFullYear()}
+		{copyrightText}
 	</div>
 </footer>
 

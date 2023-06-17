@@ -42,7 +42,7 @@ html {
 
 body {
 	transition: var(--transition);
-	background: url(/background.jpg);
+	background: url(../images/background.jpg);
 	background-repeat: repeat-y;
 	background-position: 50% -140px;
 	background-size: 900px;
@@ -62,7 +62,7 @@ body {
 
 .with-gradient {
 	background: var(--section-background);
-	padding: var(--s-4-5) 0;
+	padding: var(--s-4-8) 0;
 }
 
 .sr-only {
