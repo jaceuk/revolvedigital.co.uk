@@ -6,10 +6,10 @@ import Button from '../Button.astro';
 <section class="inner-wrapper container">
 	<div class="text">
 		<h1>Cost effective business websites</h1>
-		<div class="subtitle">
+		<p>
 			With over two decades of experience let us help your business reach new heights with a bespoke
 			website
-		</div>
+		</p>
 		<Button>Talk to us today</Button>
 	</div>
 
@@ -37,6 +37,10 @@ import Button from '../Button.astro';
 		@media (min-width: 768px) {
 			order: 1;
 			margin: var(--s-4-8) 0;
+		}
+
+		p {
+			color: var(--c-accent);
 		}
 	}
 
