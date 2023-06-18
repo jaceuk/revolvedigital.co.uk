@@ -53,6 +53,7 @@
 
 	/* misc */
 	--card-box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.15);
+	--button-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 	--max-readable-width: 750px;
 	--transition-color: color 0.2s ease;
 	--transition-background: background 0.2s ease;

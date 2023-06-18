@@ -94,3 +94,29 @@ a {
 .no-scroll {
 	overflow: hidden;
 }
+
+.button {
+	color: var(--c-paper);
+	border-radius: var(--border-radius-x-small);
+	padding: var(--s-3) var(--s-4);
+	border: none;
+	cursor: pointer;
+	box-shadow: var(--button-box-shadow);
+	transition: var(--transition-background);
+	width: fit-content;
+	background: var(--c-accent);
+
+	&:hover {
+		background: var(--c-text);
+		border-color: var(--c-text);
+	}
+
+	&.secondary {
+		color: var(--c-nearly-black);
+		background: var(--c-paper);
+
+		&:hover {
+			color: var(--c-accent);
+		}
+	}
+}
