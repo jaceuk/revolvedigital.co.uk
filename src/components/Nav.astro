@@ -1,8 +1,10 @@
 ---
 import { Icon } from 'astro-icon';
+import BurgerIcon from './BurgerIcon.astro';
 ---
 
 <script>
+	// pull down menu
 	const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
 
 	function toggleMenu(menuTrigger: Element) {
@@ -24,6 +26,7 @@ import { Icon } from 'astro-icon';
 		);
 	});
 
+	// click anywhere or scroll to close pull down menu
 	const popups = [...document.querySelectorAll('.popup')];
 	const triggers = [...document.querySelectorAll('[aria-haspopup="true"]')];
 
@@ -34,6 +37,16 @@ import { Icon } from 'astro-icon';
 
 	window.addEventListener('scroll', ({ target }) => {
 		popups.forEach((popup) => popup.classList.remove('show'));
+	});
+
+	// burger menu
+	const burgerIcon = document.querySelector('.burger');
+	const menuBar = document.querySelector('[role="menubar"]');
+
+	burgerIcon?.addEventListener('click', ({ target }) => {
+		burgerIcon.classList.toggle('open');
+		menuBar?.classList.toggle('show');
+		document.body.classList.toggle('no-scroll');
 	});
 </script>
 
@@ -54,44 +67,100 @@ import { Icon } from 'astro-icon';
 			</ul>
 		</li>
 		<li role="none"><a role="menuitem" href="/projects">Projects</a></li>
-		<li role="none"><a role="menuitem" class="button secondary" href="/contact">Contact</a></li>
+		<li role="none"><a role="menuitem" href="/contact">Contact</a></li>
 	</ul>
+
+	<button class="burger-icon">
+		<BurgerIcon />
+	</button>
 </nav>
 
 <style lang="scss">
-	ul[role='menu'] {
-		display: none;
-		position: absolute;
+	.burger-icon {
+		display: grid;
+		align-items: center;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 300;
+		position: relative;
+		padding: var(--s-1-2);
 
-		li {
-			padding: var(--s-1);
-
-			a {
-				padding: 0;
-			}
+		@media (min-width: 1100px) {
+			display: none;
 		}
-	}
 
-	li {
-		list-style: none;
-
-		.has-submenu {
-			position: relative;
+		svg {
+			min-width: var(--s-4);
+			min-height: var(--s-4);
 		}
 	}
 
 	ul[role='menubar'] {
-		display: flex;
-		align-items: center;
-		gap: var(--s-1-2);
-	}
+		display: none;
+		position: absolute;
+		width: fit-content;
+		right: 0;
+		top: 0;
+		background-color: var(--c-paper);
+		margin-left: calc(var(--s-2-4) * -1);
+		margin-right: calc(var(--s-2-4) * -1);
+		padding: var(--s-8) var(--s-4-8) var(--s-4-8) var(--s-4-8);
+		height: 100vh;
+		box-shadow: var(--card-box-shadow);
+		z-index: 200;
 
-	a,
-	.button {
-		padding: var(--s-1) var(--s-2);
+		@media (min-width: 1100px) {
+			position: relative;
+			margin: 0;
+			width: fit-content;
+			background: none;
+			display: flex;
+			align-items: center;
+			gap: var(--s-1-2);
+			padding: 0;
+			height: auto;
+			box-shadow: none;
+		}
 
-		@media (min-width: 768px) {
-			padding: var(--s-2);
+		&.show {
+			display: block;
+
+			@media (min-width: 1100px) {
+				display: flex;
+			}
+		}
+
+		li {
+			list-style: none;
+		}
+
+		a[aria-haspopup='true'] {
+			display: none;
+
+			@media (min-width: 1100px) {
+				display: flex;
+			}
+		}
+
+		.popup {
+			display: block;
+			position: relative;
+
+			@media (min-width: 1100px) {
+				display: none;
+				position: absolute;
+				background-color: var(--c-paper);
+				border-radius: var(--border-radius-small);
+				box-shadow: var(--card-box-shadow);
+				width: fit-content;
+				padding: var(--s-1-2);
+
+				&.show {
+					display: block;
+					animation: fadein 0.2s;
+				}
+			}
 		}
 	}
 
@@ -102,8 +171,13 @@ import { Icon } from 'astro-icon';
 		font-size: var(--fs-nav);
 		font-weight: var(--fw-semi-bold);
 		transition: var(--transition-color);
+		padding: var(--s-1) var(--s-2);
 		background: none;
 		border: none;
+
+		@media (min-width: 768px) {
+			padding: var(--s-2);
+		}
 
 		&:hover,
 		&.active {
@@ -113,19 +187,6 @@ import { Icon } from 'astro-icon';
 		svg {
 			min-width: 24px;
 			min-height: 24px;
-		}
-	}
-
-	.popup {
-		background-color: var(--c-paper);
-		border-radius: var(--border-radius-small);
-		box-shadow: var(--card-box-shadow);
-		width: fit-content;
-		padding: var(--s-1-2);
-
-		&.show {
-			display: block;
-			animation: fadein 0.2s;
 		}
 	}
 

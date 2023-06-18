@@ -21,6 +21,7 @@
 	--c-text: var(--c-nearly-black);
 	--c-paper: var(--c-white);
 	--c-paper-opaque: rgba(255, 255, 255, 0.4);
+	--c-overlay: rgba(0, 0, 0, 0.4);
 	--c-glass: rgba(255, 255, 255, 0.2);
 	--c-accent: var(--c-red);
 	--c-border: var(--c-pale-grey);
