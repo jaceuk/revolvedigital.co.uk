@@ -60,8 +60,5 @@ p {
 
 a {
 	text-decoration: none;
-
-	&:visited {
-		color: inherit;
-	}
+	color: var(--c-text);
 }

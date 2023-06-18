@@ -1,18 +1,11 @@
 ---
 import logo from '../images/logo.svg';
+import Nav from './Nav.astro';
 ---
 
 <script>
-	const pathName = window.location.pathname;
 	const homeButton = document.querySelector('.navlink[href="/"]');
 	const servicesButton = document.querySelector('.navlink[href="/services"]');
-	const projectsButton = document.querySelector('.navlink[href="/projects"]');
-	const contactButton = document.querySelector('.navlink[href="/contact"]');
-
-	if (pathName === '/') homeButton?.classList.add('active');
-	if (pathName === '/services') servicesButton?.classList.add('active');
-	if (pathName === '/projects') projectsButton?.classList.add('active');
-	if (pathName === '/contact') contactButton?.classList.add('active');
 </script>
 
 <header>
@@ -23,17 +16,7 @@ import logo from '../images/logo.svg';
 				<div class="sr-only">Homepage</div>
 			</a>
 
-			<nav>
-				<div class="navLinks">
-					<a class="navlink" href="/">Home</a>
-
-					<a class="navlink" href="/services">Services</a>
-
-					<a class="navlink" href="/projects">Projects</a>
-
-					<a class="navlink" href="/contact">Contact</a>
-				</div>
-			</nav>
+			<Nav />
 		</div>
 	</div>
 </header>
@@ -62,47 +45,6 @@ import logo from '../images/logo.svg';
 
 				@media (min-width: 768px) {
 					height: 70px;
-				}
-			}
-		}
-
-		nav {
-			width: fit-content;
-			justify-self: end;
-
-			.navLinks {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr;
-				gap: var(--s-1-2);
-				width: fit-content;
-
-				@media (min-width: 768px) {
-					gap: var(--s-1-2);
-				}
-
-				a {
-					font-size: var(--fs-nav);
-					font-weight: var(--fw-semi-bold);
-					transition: var(--transition-color);
-					display: grid;
-					padding: 0.4rem 0.8rem;
-
-					@media (min-width: 768px) {
-						padding: 1.6rem;
-					}
-
-					&:hover,
-					&.active {
-						color: var(--c-accent);
-					}
-
-					&:first-child {
-						display: none;
-
-						@media (min-width: 768px) {
-							display: grid;
-						}
-					}
 				}
 			}
 		}

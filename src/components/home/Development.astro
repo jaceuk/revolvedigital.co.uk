@@ -6,7 +6,6 @@ import google from '../images/google.svg';
 import speed from '../images/speed.svg';
 import wordpress from '../images/wordpress.svg';
 import accessible from '../images/accessible.svg';
-import Button from '@components/Button.astro';
 ---
 
 <section class="inner-wrapper">
@@ -37,12 +36,14 @@ import Button from '@components/Button.astro';
 				<Feature
 					icon={accessible}
 					title="Accessibility built in"
-					text="Ensure inclusivity and accessibility for all users with our comprehensive."
+					text="Ensure inclusivity and accessibility for all users."
 				/>
 			</div>
 
 			<span class="center">
-				<Button href="#">Find out more about or Web development services</Button>
+				<a class="button" href="/services/website-development"
+					>Find out more about or Web development services</a
+				>
 			</span>
 		</div>
 	</GlassCard>

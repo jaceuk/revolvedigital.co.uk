@@ -1,0 +1,145 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<script>
+	const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
+
+	function toggleMenu(menuTrigger: Element) {
+		const closestPopup = menuTrigger.parentElement?.querySelector('ul');
+		closestPopup?.classList.toggle('show');
+		menuTrigger.setAttribute(
+			'aria-expanded',
+			menuTrigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+		);
+	}
+
+	menuTriggers?.forEach((menuTrigger) => {
+		menuTrigger.addEventListener(
+			'click',
+			() => {
+				toggleMenu(menuTrigger);
+			},
+			false
+		);
+	});
+
+	const popups = [...document.querySelectorAll('.popup')];
+	const triggers = [...document.querySelectorAll('[aria-haspopup="true"]')];
+
+	window.addEventListener('click', ({ target }) => {
+		if (!target?.getAttribute('aria-expanded'))
+			popups.forEach((popup) => popup.classList.remove('show'));
+	});
+
+	window.addEventListener('scroll', ({ target }) => {
+		popups.forEach((popup) => popup.classList.remove('show'));
+	});
+</script>
+
+<nav>
+	<ul role="menubar">
+		<li role="none"><a href="/" role="menuitem">Home</a></li>
+		<li role="none" class="has-submenu">
+			<a role="menuitem" href="#" aria-expanded="false" aria-haspopup="true">
+				Services<Icon pack="ic" name="round-keyboard-arrow-down" />
+			</a>
+			<ul role="menu" class="popup">
+				<li role="none">
+					<a role="menuitem" href="/services/website-design">Website design</a>
+				</li>
+				<li role="none">
+					<a role="menuitem" href="/services/website-development">Website development</a>
+				</li>
+			</ul>
+		</li>
+		<li role="none"><a role="menuitem" href="/projects">Projects</a></li>
+		<li role="none"><a role="menuitem" class="button secondary" href="/contact">Contact</a></li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	ul[role='menu'] {
+		display: none;
+		position: absolute;
+
+		li {
+			padding: var(--s-1);
+
+			a {
+				padding: 0;
+			}
+		}
+	}
+
+	li {
+		list-style: none;
+
+		.has-submenu {
+			position: relative;
+		}
+	}
+
+	ul[role='menubar'] {
+		display: flex;
+		align-items: center;
+		gap: var(--s-1-2);
+	}
+
+	a,
+	.button {
+		padding: var(--s-1) var(--s-2);
+
+		@media (min-width: 768px) {
+			padding: var(--s-2);
+		}
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: var(--s-0);
+		font-size: var(--fs-nav);
+		font-weight: var(--fw-semi-bold);
+		transition: var(--transition-color);
+		background: none;
+		border: none;
+
+		&:hover,
+		&.active {
+			color: var(--c-accent);
+		}
+
+		svg {
+			min-width: 24px;
+			min-height: 24px;
+		}
+	}
+
+	.popup {
+		background-color: var(--c-paper);
+		border-radius: var(--border-radius-small);
+		box-shadow: var(--card-box-shadow);
+		width: fit-content;
+		padding: var(--s-1-2);
+
+		&.show {
+			display: block;
+			animation: fadein 0.2s;
+		}
+	}
+
+	@keyframes fadein {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
+	nav {
+		justify-self: end;
+	}
+</style>

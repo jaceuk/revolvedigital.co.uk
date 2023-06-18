@@ -23,8 +23,12 @@ const { icon, title, text } = Astro.props;
 <style lang="scss">
 	.feature {
 		display: grid;
-		grid-template-columns: auto 1fr;
+		grid-template-columns: 1fr;
 		gap: var(--s-2-4);
+
+		@media (min-width: 1100px) {
+			grid-template-columns: auto 1fr;
+		}
 	}
 
 	.text {

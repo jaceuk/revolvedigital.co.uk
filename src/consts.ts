@@ -1,2 +1,2 @@
-export const SITE_TITLE = 'My personal website.';
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const SITE_TITLE = 'Revolve Digital Solutions';
+export const SITE_DESCRIPTION = 'Cost effective business websites';
