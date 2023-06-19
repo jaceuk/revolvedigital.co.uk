@@ -1,5 +1,4 @@
 ---
-import GlassCard from '../GlassCard.astro';
 import Feature from './Feature.astro';
 import Intro from './Intro.astro';
 import users from '../images/users.svg';
@@ -9,7 +8,7 @@ import accessible from '../images/accessible.svg';
 ---
 
 <section class="inner-wrapper">
-	<GlassCard>
+	<section>
 		<div class="container">
 			<Intro title="Website design">
 				Ready to make a stunning first impression online? Our website design services provide custom
@@ -36,13 +35,13 @@ import accessible from '../images/accessible.svg';
 				/>
 			</div>
 
-			<span class="center">
-				<a class="button" href="/services/website-design"
-					>Find out more about or Web design service</a
-				>
-			</span>
+			<div class="center">
+				<a class="button" href="/services/website-design">
+					Find out more about or Web design service
+				</a>
+			</div>
 		</div>
-	</GlassCard>
+	</section>
 </section>
 
 <style lang="scss">
@@ -64,5 +63,6 @@ import accessible from '../images/accessible.svg';
 
 	.center {
 		margin: auto;
+		height: auto;
 	}
 </style>
