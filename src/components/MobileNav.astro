@@ -1,0 +1,169 @@
+---
+import Icon from 'astro-icon';
+import logo from '../images/logo.svg';
+---
+
+<div class="modal micromodal-slide" id="mobile-nav" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+			<header>
+				<div class="logo">
+					<img src={logo} alt="Revolve Digital Solutions logo" />
+					<div class="sr-only">Homepage</div>
+				</div>
+
+				<button class="close-button" aria-label="Close modal" data-micromodal-close>
+					<Icon pack="ic" name="round-close" />
+				</button>
+			</header>
+
+			<main class="modal__content" id="modal-1-content">
+				<ul role="menubar">
+					<li role="none"><a href="/" role="menuitem">Home</a></li>
+					<li role="none">
+						<a role="menuitem" href="/services/website-design">Website design</a>
+					</li>
+					<li role="none">
+						<a role="menuitem" href="/services/website-development">Website development</a>
+					</li>
+					<li role="none"><a role="menuitem" href="/projects">Projects</a></li>
+					<li role="none"><a role="menuitem" href="/contact">Contact</a></li>
+				</ul>
+			</main>
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	li {
+		list-style: none;
+	}
+
+	a[role='menuitem'] {
+		display: flex;
+		align-items: center;
+		gap: var(--s-0);
+		font-size: var(--fs-nav);
+		font-weight: var(--fw-semi-bold);
+		transition: var(--transition-color);
+		padding: var(--s-1) var(--s-2);
+		background: none;
+		border: none;
+		margin: auto;
+
+		@media (min-width: 768px) {
+			padding: var(--s-2);
+		}
+
+		&:hover,
+		&.active {
+			color: var(--c-accent);
+		}
+	}
+
+	header {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: space-between;
+		position: relative;
+		align-items: center;
+
+		.logo {
+			display: grid;
+			align-items: center;
+
+			svg {
+				height: 50px;
+				fill: var(--c-text);
+
+				@media (min-width: 768px) {
+					height: 70px;
+				}
+			}
+		}
+	}
+
+	.close-button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: var(--s-1-2);
+		justify-self: end;
+
+		svg {
+			width: var(--s-4);
+			height: var(--s-4);
+		}
+	}
+
+	.modal {
+		z-index: 500;
+	}
+
+	.modal__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.6);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.modal__container {
+		background-color: #fff;
+		padding: var(--s-2-4);
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+		box-sizing: border-box;
+	}
+
+	.modal__content {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		line-height: 1.5;
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	@keyframes mmfadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes mmfadeOut {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+
+	.micromodal-slide {
+		display: none;
+	}
+
+	.micromodal-slide.is-open {
+		display: block;
+	}
+
+	.micromodal-slide[aria-hidden='false'] .modal__overlay {
+		animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+	}
+
+	.micromodal-slide[aria-hidden='true'] .modal__overlay {
+		animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+	}
+
+	.micromodal-slide .modal__container,
+	.micromodal-slide .modal__overlay {
+		will-change: transform;
+	}
+</style>

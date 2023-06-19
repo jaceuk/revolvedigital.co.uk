@@ -1,9 +1,13 @@
 ---
 import { Icon } from 'astro-icon';
-import BurgerIcon from './BurgerIcon.astro';
+import MobileNav from './MobileNav.astro';
 ---
 
 <script>
+	import MicroModal from 'micromodal';
+
+	MicroModal.init({ disableScroll: true });
+
 	// pull down menu
 	const menuTriggers = document.querySelectorAll('[aria-haspopup="true"]');
 
@@ -38,16 +42,6 @@ import BurgerIcon from './BurgerIcon.astro';
 	window.addEventListener('scroll', ({ target }) => {
 		popups.forEach((popup) => popup.classList.remove('show'));
 	});
-
-	// burger menu
-	const burgerIcon = document.querySelector('.burger');
-	const menuBar = document.querySelector('[role="menubar"]');
-
-	burgerIcon?.addEventListener('click', ({ target }) => {
-		burgerIcon.classList.toggle('open');
-		menuBar?.classList.toggle('show');
-		document.body.classList.toggle('no-scroll');
-	});
 </script>
 
 <nav>
@@ -70,10 +64,12 @@ import BurgerIcon from './BurgerIcon.astro';
 		<li role="none"><a role="menuitem" href="/contact">Contact</a></li>
 	</ul>
 
-	<button class="burger-icon">
-		<BurgerIcon />
+	<button class="burger-icon" data-micromodal-trigger="mobile-nav">
+		<Icon pack="ic" name="round-menu" />
 	</button>
 </nav>
+
+<MobileNav />
 
 <style lang="scss">
 	.burger-icon {
@@ -82,7 +78,6 @@ import BurgerIcon from './BurgerIcon.astro';
 		background: none;
 		border: none;
 		cursor: pointer;
-		z-index: 300;
 		position: relative;
 		padding: var(--s-1-2);
 
@@ -98,17 +93,6 @@ import BurgerIcon from './BurgerIcon.astro';
 
 	ul[role='menubar'] {
 		display: none;
-		position: absolute;
-		width: fit-content;
-		right: 0;
-		top: 0;
-		background-color: var(--c-paper);
-		margin-left: calc(var(--s-2-4) * -1);
-		margin-right: calc(var(--s-2-4) * -1);
-		padding: var(--s-8) var(--s-4-8) var(--s-4-8) var(--s-4-8);
-		height: 100vh;
-		box-shadow: var(--card-box-shadow);
-		z-index: 200;
 
 		@media (min-width: 1100px) {
 			position: relative;
@@ -123,24 +107,12 @@ import BurgerIcon from './BurgerIcon.astro';
 			box-shadow: none;
 		}
 
-		&.show {
-			display: block;
-
-			@media (min-width: 1100px) {
-				display: flex;
-			}
-		}
-
 		li {
 			list-style: none;
 		}
 
 		a[aria-haspopup='true'] {
-			display: none;
-
-			@media (min-width: 1100px) {
-				display: flex;
-			}
+			display: flex;
 		}
 
 		.popup {
