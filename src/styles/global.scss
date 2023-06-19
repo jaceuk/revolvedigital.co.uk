@@ -41,7 +41,7 @@ html {
 }
 
 body {
-	transition: var(--transition-color);
+	transition: color var(--transition);
 	background: url(../images/background.jpg);
 	background-repeat: repeat-y;
 	background-position: 50% -140px;

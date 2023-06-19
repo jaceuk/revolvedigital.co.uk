@@ -3,11 +3,6 @@ import logo from '../images/logo.svg';
 import Nav from './Nav.astro';
 ---
 
-<script>
-	const homeButton = document.querySelector('.navlink[href="/"]');
-	const servicesButton = document.querySelector('.navlink[href="/services"]');
-</script>
-
 <header>
 	<div class="inner-wrapper">
 		<div class="navbar">
@@ -23,17 +18,29 @@ import Nav from './Nav.astro';
 
 <style lang="scss">
 	header {
-		background: var(--c-paper-opaque);
+		background: var(--c-paper);
 		border-bottom: 1px solid var(--c-border);
+		z-index: 200;
+		position: sticky;
+		top: 0;
+
+		@media (min-width: 768px) {
+			position: relative;
+			background: var(--c-paper-opaque);
+		}
 	}
 
 	.navbar {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		justify-content: space-between;
-		padding: var(--s-2-4) 0;
+		padding: var(--s-1-2) 0;
 		position: relative;
 		align-items: center;
+
+		@media (min-width: 768px) {
+			padding: var(--s-2-4) 0;
+		}
 
 		.logo {
 			display: grid;
