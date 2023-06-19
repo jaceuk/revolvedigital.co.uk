@@ -20,6 +20,7 @@
     "micromodal": "^0.4.10"
   },
   "devDependencies": {
+    "@types/micromodal": "^0.3.3",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0",
     "stylelint": "^15.6.3",

@@ -34,7 +34,8 @@ import MobileNav from './MobileNav.astro';
 	const popups = [...document.querySelectorAll('.popup')];
 	const triggers = [...document.querySelectorAll('[aria-haspopup="true"]')];
 
-	window.addEventListener('click', ({ target }) => {
+	window.addEventListener('click', (event) => {
+		const target = event.target as HTMLButtonElement;
 		if (!target?.getAttribute('aria-expanded'))
 			popups.forEach((popup) => popup.classList.remove('show'));
 	});
