@@ -1,19 +1,22 @@
 ---
+import GlassCard from '../GlassCard.astro';
 import Testimonial from './Testimonial.astro';
 ---
 
 <section class="inner-wrapper">
-	<div class="testimonials">
-		<Testimonial author="The Village Florist">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus nisi, interdum ac ipsum
-			ut, vehicula convallis neque. Suspendisse lacinia volutpat egestas.
-		</Testimonial>
-		<Testimonial author="The Village Florist">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus nisi, interdum ac ipsum
-			ut, vehicula convallis neque. Suspendisse lacinia volutpat egestas. Lorem ipsum dolor sit
-			amet, consectetur adipiscing elit.
-		</Testimonial>
-	</div>
+	<GlassCard>
+		<div class="testimonials">
+			<Testimonial author="The Village Florist">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus nisi, interdum ac ipsum
+				ut, vehicula convallis neque. Suspendisse lacinia volutpat egestas.
+			</Testimonial>
+			<Testimonial author="The Village Florist">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus nisi, interdum ac ipsum
+				ut, vehicula convallis neque. Suspendisse lacinia volutpat egestas. Lorem ipsum dolor sit
+				amet, consectetur adipiscing elit.
+			</Testimonial>
+		</div>
+	</GlassCard>
 </section>
 
 <style lang="scss">
