@@ -19,7 +19,7 @@ import hero from '../../images/hero.jpg';
 	.container {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: var(--s-4-8);
+		gap: var(--scale-32-64);
 
 		@media (min-width: 768px) {
 			grid-template-columns: 1fr 1fr;
@@ -29,13 +29,13 @@ import hero from '../../images/hero.jpg';
 	.text {
 		width: 100%;
 		display: grid;
-		gap: var(--s-2-4);
+		gap: var(--scale-16-32);
 		order: 2;
 		justify-items: start;
 
 		@media (min-width: 768px) {
 			order: 1;
-			margin: var(--s-4-8) 0;
+			margin: var(--scale-32-64) 0;
 		}
 
 		p {

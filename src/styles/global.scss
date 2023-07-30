@@ -54,22 +54,22 @@ body {
 }
 
 main {
-	padding: var(--s-4-8) 0;
+	padding: var(--scale-32-64) 0;
 	display: grid;
-	gap: calc(var(--s-4-8) * 2);
+	gap: calc(var(--scale-32-64) * 2);
 }
 
 .inner-wrapper {
 	max-width: 1376px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 var(--s-2-4);
+	padding: 0 var(--scale-16-32);
 	width: 100%;
 }
 
 .with-gradient {
 	background: var(--section-background);
-	padding: var(--s-4-8) 0;
+	padding: var(--scale-32-64) 0;
 }
 
 .sr-only {

@@ -32,7 +32,6 @@ import MobileNav from './MobileNav.astro';
 
 	// click anywhere or scroll to close pull down menu
 	const popups = [...document.querySelectorAll('.popup')];
-	const triggers = [...document.querySelectorAll('[aria-haspopup="true"]')];
 
 	window.addEventListener('click', (event) => {
 		const target = event.target as HTMLButtonElement;
@@ -80,7 +79,7 @@ import MobileNav from './MobileNav.astro';
 		border: none;
 		cursor: pointer;
 		position: relative;
-		padding: var(--s-1-2);
+		padding: var(--scale-8-16);
 
 		@media (min-width: 1100px) {
 			display: none;
@@ -102,7 +101,7 @@ import MobileNav from './MobileNav.astro';
 			background: none;
 			display: flex;
 			align-items: center;
-			gap: var(--s-1-2);
+			gap: var(--scale-8-16);
 			padding: 0;
 			height: auto;
 			box-shadow: none;
@@ -127,7 +126,7 @@ import MobileNav from './MobileNav.astro';
 				border-radius: var(--border-radius-small);
 				box-shadow: var(--card-box-shadow);
 				width: fit-content;
-				padding: var(--s-1-2);
+				padding: var(--scale-8-16);
 
 				&.show {
 					display: block;

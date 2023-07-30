@@ -24,7 +24,7 @@ const { icon, title, text } = Astro.props;
 	.feature {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: var(--s-2-4);
+		gap: var(--scale-16-32);
 
 		@media (min-width: 1100px) {
 			grid-template-columns: auto 1fr;
@@ -33,6 +33,6 @@ const { icon, title, text } = Astro.props;
 
 	.text {
 		display: grid;
-		gap: var(--s-1-2);
+		gap: var(--scale-8-16);
 	}
 </style>
